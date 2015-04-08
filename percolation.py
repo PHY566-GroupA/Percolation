@@ -159,6 +159,28 @@ for i in N:
         pyplot.ylim(-1,10)
         pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=50)
         pyplot.show()
+    if (i==10):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 10 X 10 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,15)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,15)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
+        pyplot.show()
+    if (i==15):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 15 X 15 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,15)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,15)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
+        pyplot.show()
 
 
 
