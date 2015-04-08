@@ -1,7 +1,6 @@
 from  pylab import *
-import matplotlib as mpl
+from matplotlib import pyplot
 import random
-import time 
 
 
 def initialize(n):
@@ -146,6 +145,7 @@ def main(n):
 		clnum=clnum+1	  
 	return num, nc, xcluster, ycluster, grid
 
+# plotting the spanning cluster for different values off N. Also, simulating each value off N, 50 times.
 N=[5,10,15,20,30,50,80]
 for i in N:
     if (i==5):
@@ -180,6 +180,50 @@ for i in N:
         pyplot.ylabel('y coordinate -->')
         pyplot.ylim(-1,15)
         pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
+        pyplot.show()
+    if (i==20):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 20 X 20 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,20)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,20)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=25)
+        pyplot.show()
+    if (i==30):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 30 X 30 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,30)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,30)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=20)
+        pyplot.show()
+    if (i==50):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 50 X 50 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,50)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,50)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=10)
+        pyplot.show()
+    if (i==80):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 80 X 80 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,80)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,80)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=7)
         pyplot.show()
 
 
