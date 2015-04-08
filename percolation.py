@@ -147,6 +147,11 @@ def main(n):
 
 # plotting the spanning cluster for different values off N. Also, simulating each value off N, 50 times.
 N=[5,10,15,20,30,50,80]
+pc=[]
+N_inverse=[]
+for e in N:
+	g=1/e
+	N_inverse.append(g)
 for i in N:
     if (i==5):
         for j in range(49):
@@ -171,6 +176,8 @@ for i in N:
 
         pc_5=a_5/25.0
         print pc_5
+        
+        pc.append(pc_5)
 
     if (i==10):
         for j in range(49):
@@ -195,6 +202,8 @@ for i in N:
 
         pc_10=a_10/100.0
         print pc_10
+        
+        pc.append(pc_10)
 
     if (i==15):
         for j in range(49):
@@ -219,6 +228,8 @@ for i in N:
 
         pc_15=a_15/225.0
         print pc_15
+        
+        pc.append(pc_15)
 
     if (i==20):
         for j in range(49):
@@ -244,6 +255,8 @@ for i in N:
         pc_20=a_20/400.0
         print pc_20
         
+        pc.append(pc_20)
+        
     if (i==30):
         for j in range(49):
             num,nc,xcluster,ycluster,grid = main(i)
@@ -267,6 +280,8 @@ for i in N:
 
         pc_30=a_30/900.0
         print pc_30
+        
+        pc.append(pc_30)
         
     if (i==50):
         for j in range(49):
@@ -292,6 +307,8 @@ for i in N:
         pc_50=a_50/2500.0
         print pc_50
         
+        pc.append(pc_50)
+        
     if (i==80):
         for j in range(49):
             num,nc,xcluster,ycluster,grid = main(i)
@@ -315,5 +332,10 @@ for i in N:
 
         pc_80=a_80/6400.0
         print pc_80
+        
+        pc.append(pc_80)
+        
+print pc
+print N_inverse
 
 
