@@ -146,15 +146,19 @@ def main(n):
 		clnum=clnum+1	  
 	return num, nc, xcluster, ycluster, grid
 
-
-
-
-num,nc,xcluster,ycluster,grid = main(5)
-figure(figsize=(10,10))
-xlim(-0.5,9.5)
-ylim(-0.5,9.5)
-plot(xcluster[num],ycluster[num],'bo',markersize=50)
-
+N=[5,10,15,20,30,50,80]
+for i in N:
+    if (i==5):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 5 X 5 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,10)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,10)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=50)
+        pyplot.show()
 
 
 
