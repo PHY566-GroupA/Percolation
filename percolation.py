@@ -338,4 +338,8 @@ for i in N:
 print pc
 print N_inverse
 
+pyplot.ylim(0,1)
+pyplot.plot(N_inverse,pc)
+pyplot.show()
+
 
