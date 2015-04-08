@@ -150,7 +150,7 @@ N=[5,10,15,20,30,50,80]
 pc=[]
 N_inverse=[]
 for e in N:
-	g=1/e
+	g=1.0/float(e)
 	N_inverse.append(g)
 for i in N:
     if (i==5):
