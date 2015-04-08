@@ -159,72 +159,16 @@ for i in N:
         pyplot.ylim(-1,10)
         pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=50)
         pyplot.show()
-    if (i==10):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 10 X 10 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,15)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,15)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
-        pyplot.show()
-    if (i==15):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 15 X 15 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,15)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,15)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
-        pyplot.show()
-    if (i==20):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 20 X 20 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,20)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,20)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=25)
-        pyplot.show()
-    if (i==30):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 30 X 30 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,30)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,30)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=20)
-        pyplot.show()
-    if (i==50):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 50 X 50 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,50)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,50)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=10)
-        pyplot.show()
-    if (i==80):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 80 X 80 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,80)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,80)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=7)
-        pyplot.show()
+ 
+# finding pc (critical probability)
+a=0
+b=len(xcluster)
+for i in range(b):
+        if xcluster[i]!=[]:
+            l=len(xcluster[i])
+            for j in range(l):
+                a=a+1
+print a
 
 
 
