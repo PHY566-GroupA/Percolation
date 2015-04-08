@@ -171,5 +171,30 @@ for i in N:
         
         pc_5=a_5/25.0
         print pc_5
+        
+    if (i==10):
+        for j in range(49):
+            num,nc,xcluster,ycluster,grid = main(i)
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 10 X 10 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,15)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,15)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
+        pyplot.show()
+
+        a_10=0.0
+        b_10=len(xcluster)
+        for i in range(b_10):
+                if xcluster[i]!=[]:
+                    l=len(xcluster[i])
+                    for j in range(l):
+                        a_10=a_10+1
+        print a_10
+
+        pc_10=a_10/100.0
+        print pc_10
+
 
     
