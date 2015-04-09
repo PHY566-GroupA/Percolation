@@ -184,3 +184,199 @@ for i in N:
         pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=95)
         pyplot.savefig('5x5grid.png')
         pyplot.show()
+        
+    if (i==10):
+        pc_10_dummy1=0
+        pc_10_dummy=[]
+        for j in range(s):
+            num,nc,xcluster,ycluster,grid = main(i)
+            a_10=0.0
+            b_10=len(xcluster)
+            for t in range(b_10):
+                if xcluster[t]!=[]:
+                    l=len(xcluster[t])
+                    for k in range(l):
+                        a_10=a_10+1
+            pc_10=a_10/100.0
+            print pc_10
+            pc_10_dummy.append(pc_10)
+        for p in pc_10_dummy:
+            pc_10_dummy1=pc_10_dummy1+p
+        pc_10_dummy2=pc_10_dummy1/50
+        print pc_10_dummy2
+        pc.append(pc_10_dummy2)
+
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 10 X 10 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,10)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,10)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=50)
+        pyplot.savefig('10x10grid.png')
+        pyplot.show()
+
+    if (i==15):
+        pc_15_dummy1=0
+        pc_15_dummy=[]
+        for j in range(s):
+            num,nc,xcluster,ycluster,grid = main(i)
+            a_15=0.0
+            b_15=len(xcluster)
+            for t in range(b_15):
+                if xcluster[t]!=[]:
+                    l=len(xcluster[t])
+                    for k in range(l):
+                        a_15=a_15+1
+            pc_15=a_15/225.0
+            print pc_15
+            pc_15_dummy.append(pc_15)
+        for p in pc_15_dummy:
+            pc_15_dummy1=pc_15_dummy1+p
+        pc_15_dummy2=pc_15_dummy1/50
+        print pc_15_dummy2
+        pc.append(pc_15_dummy2)
+
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 15 X 15 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,15)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,15)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
+        pyplot.savefig('15x15grid.png')
+        pyplot.show()
+
+    if (i==20):
+        pc_20_dummy1=0
+        pc_20_dummy=[]
+        for j in range(s):
+            num,nc,xcluster,ycluster,grid = main(i)
+            a_20=0.0
+            b_20=len(xcluster)
+            for t in range(b_20):
+                if xcluster[t]!=[]:
+                    l=len(xcluster[t])
+                    for k in range(l):
+                        a_20=a_20+1
+            pc_20=a_20/400.0
+            print pc_20
+            pc_20_dummy.append(pc_20)
+        for p in pc_20_dummy:
+            pc_20_dummy1=pc_20_dummy1+p
+        pc_20_dummy2=pc_20_dummy1/50
+        print pc_20_dummy2
+        pc.append(pc_20_dummy2)
+
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 20 X 20 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,20)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,20)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=25)
+        pyplot.savefig('20x20grid.png')
+        pyplot.show()
+
+    if (i==30):
+        pc_30_dummy1=0
+        pc_30_dummy=[]
+        for j in range(s):
+            num,nc,xcluster,ycluster,grid = main(i)
+            a_30=0.0
+            b_30=len(xcluster)
+            for t in range(b_30):
+                if xcluster[t]!=[]:
+                    l=len(xcluster[t])
+                    for k in range(l):
+                        a_30=a_30+1
+            pc_30=a_30/900.0
+            print pc_30
+            pc_30_dummy.append(pc_30)
+        for p in pc_30_dummy:
+            pc_30_dummy1=pc_30_dummy1+p
+        pc_30_dummy2=pc_30_dummy1/50
+        print pc_30_dummy2
+        pc.append(pc_30_dummy2)
+
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 30 X 30 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,30)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,30)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=20)
+        pyplot.savefig('30x30grid.png')
+        pyplot.show()
+
+    if (i==50):
+        pc_50_dummy1=0
+        pc_50_dummy=[]
+        for j in range(s):
+            num,nc,xcluster,ycluster,grid = main(i)
+            a_50=0.0
+            b_50=len(xcluster)
+            for t in range(b_50):
+                if xcluster[t]!=[]:
+                    l=len(xcluster[t])
+                    for k in range(l):
+                        a_50=a_50+1
+            pc_50=a_50/2500.0
+            print pc_50
+            pc_50_dummy.append(pc_50)
+        for p in pc_50_dummy:
+            pc_50_dummy1=pc_50_dummy1+p
+        pc_50_dummy2=pc_50_dummy1/50
+        print pc_50_dummy2
+        pc.append(pc_50_dummy2)
+
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 50 X 50 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,50)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,50)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=10)
+        pyplot.savefig('50x50grid.png')
+        pyplot.show()
+
+    if (i==80):
+        pc_80_dummy1=0
+        pc_80_dummy=[]
+        for j in range(s):
+            num,nc,xcluster,ycluster,grid = main(i)
+            a_80=0.0
+            b_80=len(xcluster)
+            for t in range(b_80):
+                if xcluster[t]!=[]:
+                    l=len(xcluster[t])
+                    for k in range(l):
+                        a_80=a_80+1
+            pc_80=a_80/6400.0
+            print pc_80
+            pc_80_dummy.append(pc_80)
+        for p in pc_80_dummy:
+            pc_80_dummy1=pc_80_dummy1+p
+        pc_80_dummy2=pc_80_dummy1/50
+        print pc_80_dummy2
+        pc.append(pc_80_dummy2)
+
+        pyplot.figure(figsize=(10,10))
+        pyplot.title('Percolation transition for a 80 X 80 grid')
+        pyplot.xlabel('x coordinate -->')
+        pyplot.xlim(-1,80)
+        pyplot.ylabel('y coordinate -->')
+        pyplot.ylim(-1,80)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=7)
+        pyplot.savefig('80x80grid.png')
+        pyplot.show()
+
+print pc
+print N_inverse
+
+pyplot.ylim(0,1)
+pyplot.plot(N_inverse,pc)
+pyplot.savefig('pcvsN.png')
+pyplot.show()
+
+
