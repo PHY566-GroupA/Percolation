@@ -148,198 +148,39 @@ def main(n):
 # plotting the spanning cluster for different values off N. Also, simulating each value off N, 50 times.
 N=[5,10,15,20,30,50,80]
 pc=[]
+s=50
 N_inverse=[]
 for e in N:
 	g=1.0/float(e)
 	N_inverse.append(g)
 for i in N:
     if (i==5):
-        for j in range(49):
+        pc_5_dummy1=0
+        pc_5_dummy=[]
+        for j in range(s):
             num,nc,xcluster,ycluster,grid = main(i)
+            a_5=0.0
+            b_5=len(xcluster)
+            for t in range(b_5):
+                if xcluster[t]!=[]:
+                    l=len(xcluster[t])
+                    for k in range(l):
+                        a_5=a_5+1
+            pc_5=a_5/25.0
+            print pc_5
+            pc_5_dummy.append(pc_5)
+        for p in pc_5_dummy:
+            pc_5_dummy1=pc_5_dummy1+p
+        pc_5_dummy2=pc_5_dummy1/50
+        print pc_5_dummy2
+        pc.append(pc_5_dummy2)
+
         pyplot.figure(figsize=(10,10))
         pyplot.title('Percolation transition for a 5 X 5 grid')
         pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,10)
+        pyplot.xlim(-1,5)
         pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,10)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=50)
+        pyplot.ylim(-1,5)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=95)
+        pyplot.savefig('5x5grid.png')
         pyplot.show()
-
-        a_5=0.0
-        b_5=len(xcluster)
-        for i in range(b_5):
-                if xcluster[i]!=[]:
-                    l=len(xcluster[i])
-                    for j in range(l):
-                        a_5=a_5+1
-        print a_5
-
-        pc_5=a_5/25.0
-        print pc_5
-        
-        pc.append(pc_5)
-
-    if (i==10):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 10 X 10 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,15)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,15)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
-        pyplot.show()
-
-        a_10=0.0
-        b_10=len(xcluster)
-        for i in range(b_10):
-                if xcluster[i]!=[]:
-                    l=len(xcluster[i])
-                    for j in range(l):
-                        a_10=a_10+1
-        print a_10
-
-        pc_10=a_10/100.0
-        print pc_10
-        
-        pc.append(pc_10)
-
-    if (i==15):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 15 X 15 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,15)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,15)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
-        pyplot.show()
-
-        a_15=0.0
-        b_15=len(xcluster)
-        for i in range(b_15):
-                if xcluster[i]!=[]:
-                    l=len(xcluster[i])
-                    for j in range(l):
-                        a_15=a_15+1
-        print a_15
-
-        pc_15=a_15/225.0
-        print pc_15
-        
-        pc.append(pc_15)
-
-    if (i==20):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 20 X 20 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,20)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,20)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=25)
-        pyplot.show()
-
-        a_20=0.0
-        b_20=len(xcluster)
-        for i in range(b_20):
-                if xcluster[i]!=[]:
-                    l=len(xcluster[i])
-                    for j in range(l):
-                        a_20=a_20+1
-        print a_20
-
-        pc_20=a_20/400.0
-        print pc_20
-        
-        pc.append(pc_20)
-        
-    if (i==30):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 30 X 30 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,30)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,30)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=20)
-        pyplot.show()
-
-        a_30=0.0
-        b_30=len(xcluster)
-        for i in range(b_30):
-                if xcluster[i]!=[]:
-                    l=len(xcluster[i])
-                    for j in range(l):
-                        a_30=a_30+1
-        print a_30
-
-        pc_30=a_30/900.0
-        print pc_30
-        
-        pc.append(pc_30)
-        
-    if (i==50):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 50 X 50 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,50)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,50)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=10)
-        pyplot.show()
-
-        a_50=0.0
-        b_50=len(xcluster)
-        for i in range(b_50):
-                if xcluster[i]!=[]:
-                    l=len(xcluster[i])
-                    for j in range(l):
-                        a_50=a_50+1
-        print a_50
-
-        pc_50=a_50/2500.0
-        print pc_50
-        
-        pc.append(pc_50)
-        
-    if (i==80):
-        for j in range(49):
-            num,nc,xcluster,ycluster,grid = main(i)
-        pyplot.figure(figsize=(10,10))
-        pyplot.title('Percolation transition for a 80 X 80 grid')
-        pyplot.xlabel('x coordinate -->')
-        pyplot.xlim(-1,80)
-        pyplot.ylabel('y coordinate -->')
-        pyplot.ylim(-1,80)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=7)
-        pyplot.show()
-
-        a_80=0.0
-        b_80=len(xcluster)
-        for i in range(b_80):
-                if xcluster[i]!=[]:
-                    l=len(xcluster[i])
-                    for j in range(l):
-                        a_80=a_80+1
-        print a_80
-
-        pc_80=a_80/6400.0
-        print pc_80
-        
-        pc.append(pc_80)
-        
-print pc
-print N_inverse
-
-pyplot.ylim(0,1)
-pyplot.plot(N_inverse,pc)
-pyplot.show()
-
-
