@@ -1,6 +1,7 @@
 from  pylab import *
 from matplotlib import pyplot
 import random
+from scipy.optimize import curve_fit
 
 
 def initialize(n):
@@ -84,7 +85,8 @@ def check(xcluster,ycluster,n):
 				break
 	return ans, num, len(xcluster[num])
 
-
+def fit_func(x, a, b):
+    return a*x + b
 
 def main(n):
 	grid,vacancy = initialize(n)
@@ -373,6 +375,12 @@ for i in N:
 
 print pc
 print N_inverse
+
+x=np.array(N_inverse)
+y=np.array(pc)
+params = curve_fit(fit_func,x,y)
+[a, b] = params[0]
+print a,b
 
 pyplot.ylim(0,1)
 pyplot.plot(N_inverse,pc)
