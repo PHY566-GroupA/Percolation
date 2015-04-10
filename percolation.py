@@ -169,12 +169,10 @@ for i in N:
                     for k in range(l):
                         a_5=a_5+1
             pc_5=a_5/25.0
-            print pc_5
             pc_5_dummy.append(pc_5)
         for p in pc_5_dummy:
             pc_5_dummy1=pc_5_dummy1+p
         pc_5_dummy2=pc_5_dummy1/50
-        print pc_5_dummy2
         pc.append(pc_5_dummy2)
 
         pyplot.figure(figsize=(10,10))
@@ -200,12 +198,10 @@ for i in N:
                     for k in range(l):
                         a_10=a_10+1
             pc_10=a_10/100.0
-            print pc_10
             pc_10_dummy.append(pc_10)
         for p in pc_10_dummy:
             pc_10_dummy1=pc_10_dummy1+p
         pc_10_dummy2=pc_10_dummy1/50
-        print pc_10_dummy2
         pc.append(pc_10_dummy2)
 
         pyplot.figure(figsize=(10,10))
@@ -231,12 +227,10 @@ for i in N:
                     for k in range(l):
                         a_15=a_15+1
             pc_15=a_15/225.0
-            print pc_15
             pc_15_dummy.append(pc_15)
         for p in pc_15_dummy:
             pc_15_dummy1=pc_15_dummy1+p
         pc_15_dummy2=pc_15_dummy1/50
-        print pc_15_dummy2
         pc.append(pc_15_dummy2)
 
         pyplot.figure(figsize=(10,10))
@@ -262,12 +256,10 @@ for i in N:
                     for k in range(l):
                         a_20=a_20+1
             pc_20=a_20/400.0
-            print pc_20
             pc_20_dummy.append(pc_20)
         for p in pc_20_dummy:
             pc_20_dummy1=pc_20_dummy1+p
         pc_20_dummy2=pc_20_dummy1/50
-        print pc_20_dummy2
         pc.append(pc_20_dummy2)
 
         pyplot.figure(figsize=(10,10))
@@ -293,12 +285,10 @@ for i in N:
                     for k in range(l):
                         a_30=a_30+1
             pc_30=a_30/900.0
-            print pc_30
             pc_30_dummy.append(pc_30)
         for p in pc_30_dummy:
             pc_30_dummy1=pc_30_dummy1+p
         pc_30_dummy2=pc_30_dummy1/50
-        print pc_30_dummy2
         pc.append(pc_30_dummy2)
 
         pyplot.figure(figsize=(10,10))
@@ -324,12 +314,10 @@ for i in N:
                     for k in range(l):
                         a_50=a_50+1
             pc_50=a_50/2500.0
-            print pc_50
             pc_50_dummy.append(pc_50)
         for p in pc_50_dummy:
             pc_50_dummy1=pc_50_dummy1+p
         pc_50_dummy2=pc_50_dummy1/50
-        print pc_50_dummy2
         pc.append(pc_50_dummy2)
 
         pyplot.figure(figsize=(10,10))
@@ -355,12 +343,10 @@ for i in N:
                     for k in range(l):
                         a_80=a_80+1
             pc_80=a_80/6400.0
-            print pc_80
             pc_80_dummy.append(pc_80)
         for p in pc_80_dummy:
             pc_80_dummy1=pc_80_dummy1+p
         pc_80_dummy2=pc_80_dummy1/50
-        print pc_80_dummy2
         pc.append(pc_80_dummy2)
 
         pyplot.figure(figsize=(10,10))
@@ -382,9 +368,20 @@ params = curve_fit(fit_func,x,y)
 [a, b] = params[0]
 print a,b
 
-pyplot.ylim(0,1)
+q=[0,0.0125,0.02,0.0333333,0.05]
+w=[]
+for o in q:
+    w_dummy=a*o+b
+    w.append(w_dummy)
+
+pyplot.ylim(0.4,0.7)
+pyplot.title('Critical probability vs Grid size')
+pyplot.xlabel('Grid size ($N^{-1}$) -->')
+pyplot.ylabel('Critical probability ($p_c$)')
 pyplot.plot(N_inverse,pc)
-pyplot.savefig('pcvsN.png')
+pyplot.annotate('$p_c(0) = %s$'%(b),xy=(0,b),xytext=(0.03,0.65),arrowprops=dict(facecolor='black', shrink=0.05))
+pyplot.plot(q,w,'r*')
+pyplot.savefig('pcvsN-1.png')
 pyplot.show()
 
 
