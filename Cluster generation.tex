@@ -1,18 +1,59 @@
 \documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
 \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
 %\geometry{landscape}                		% Activate for for rotated page geometry
 %\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
-\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+\usepackage{graphicx,enumitem}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
 
-\title{Method for spanning cluster generation}
-\author{Jiyingmei Wang}
+\title{PHY 566 Group Assignment 2 (version A) }
+\author{Jiyingmei Wang, Ankur Manikandan, Aritro Pathak and Tong Zhu}
 %\date{}							% Activate to display a given date or no date
 
 \begin{document}
 \maketitle
+
+\begin{abstract}
+Percolation theory was developed to mathematically deal with disordered media, in which the disorder is defined by a random variation in the degree of connectivity. A procedure to study percolation is to generate a random number and then occupy a site
+if the random number is less than p. This is done for every site in the lattice. If p is small, then we expect only small isolated clusters to be present. On the other hand, if p is close to 1, we expect most of the occupied sites to be in a single large cluster that extends from one end of the lattice to the other. Such a cluster is said to span the lattice and is called a spanning cluster. 
+
+The intrinsic characteristic of percolation is connectedness. The connectedness exhibits a qualitative change in behavior at a well-defined value of p. Hence the transition from a state with no spanning cluster to a state with one spanning cluster is a type of phase
+transition.
+
+ Site percolation is a simple model that is applicable to a number of physical processes including 1) electrical conductivity of a mixture of metallic and insulating materials, 2) the behavior of magnets diluted by non-magnetic materials, 3) the characterization of gels (e.g. why is jello different from broth?). It is also useful for understanding how diseases spread in a population, how oil flows through porous rock, and the spread of forest fires. 
+\end{abstract}
+
+\section{Introduction}
+In the Group Assignment 2, we are asked to use spanning clusters to simulate the percolation transition on a $N * N$ lattice. Also, we are asked to extrapolate the value of critical probability when $N=0$. The second question asks us to compute the fraction $F(p>p_c)$ and fit the results to a power-law ansatz. The questions posed in the assignment are as follows - 
+
+\subsection{Percolation}
+Write a program to simulate the percolation transition on a $N*N$ lattice by subsequently (randomly) filling lattice sites corresponding to an increase in occupation probability,$ p$.
+
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Determine the critical probability $p_c$ by checking, after each new entry, for the appearance of a spanning cluster, and plot the latter when it first appears (once for each value of $N$). Repeat this procedure for $N = 5, 10, 15, 20, 30, 50, 80$ using an average over 50 simulations for each $N$ and plot $p_c(N^{-1}$ ) to extrapolate to the infinite size limit $p_c(0)$.
+
+\item For a fixed lattice size of $N=100$, compute the fraction
+
+\begin{equation}
+F(p>p_c) = \frac{ \text {no. of sites in spanning cluster}} { \text {no. of occupied sites}}
+\end{equation}
+
+as a function of $p$ above the critical $p_c$. Average your results for each $p$ over 50 simulations. Fit your results to a power-law ansatz
+
+\begin{equation}
+F=F_0 (p-p_c)^\beta
+\end{equation}
+
+by plotting the logarithm of both sides and extracting the slope of a straight-line fit.
+
+\end{enumerate}
+
 \section{Method for spanning cluster generation}
 \subsection{Lattice initialization}
 
@@ -44,5 +85,8 @@
 
 \subsection{Spanning cluster check}
 After every new cluster/particle addition followed by cluster combination, we are supposed to check whether spanning cluster is already exist in the lattice or not. To check the existence of spanning cluster, we look over all the elements in xcluster and ycluster, to see that whether there is a cluster number i that satisfies both max(xcluster[i])=max(ycluster[i])=N-1 and min(xcluster[i])=min(ycluster[i])=0. If there is, then everything is done. If there is not, we should redo the new cluster/particle addition and cluster combination step and check again.
+
+
+\section{Results}
 
 \end{document}  
