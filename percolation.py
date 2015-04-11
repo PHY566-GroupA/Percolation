@@ -19,7 +19,8 @@ def selection(vacancy,grid):
 	'''
 	randomly choose a vacant site to put paticle.
 	'''
-	choice = random.choice(vacancy)
+
+    choice = random.choice(vacancy)
 	p0=int(choice[0])
 	p1=int(choice[1])
 	vacancy.remove([p0,p1])

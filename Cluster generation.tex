@@ -1,0 +1,48 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\title{Method for spanning cluster generation}
+\author{Jiyingmei Wang}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Method for spanning cluster generation}
+\subsection{Lattice initialization}
+
+\begin{itemize}
+\item Initialize an empty lattice, which is a N$\times$N matrix(grid[ ]), with each element storing a number equal to the cluster number that corresponding site belonging to.  Hence, at the very beginning, all the site in the lattice is initialized to cluster number 0, indicating a vacant lattice.
+\item Create a list to store the position information of the unoccupied site.
+\item Create two tuples to store the x and y coordinate for each cluster. In these two tuples(xcluster, yculster),  elements(xcluster[i], ycluster[i]) are lists with varying length containing x and y coordinates in cluster number i.
+\end{itemize}
+
+
+\subsection{New cluster/particle addition}
+\begin{itemize}
+\item Pick a position from the empty lattice sites randomly.
+\item Add a new cluster number, which is equal to the sequence of addition in this case, into the selected site in the 2D matrix, and also add its x and y coordinate to a new element in xcluster and ycluster respectively,  inferring that this new added particle is an independent new cluster.
+\item Remove the chosen position from the list containing the unoccupied lattice site position as it is no more vacant.
+\end{itemize}
+
+\subsection{Cluster combination}
+\begin{itemize}
+\item Check the neighboring sites of new added cluster/particle in one direction every time.
+\item If no neighboring occupied site is in a certain direction, then the number of cluster belonging to the new added particle remain unchanged and continue checking in other directions.
+\item If there is one particle located in the neighboring site in certain direction, cluster combination is supposed to be conduct.
+\item Compare the cluster number of occupied neighboring site and that of the center particle, and join the cluster with the larger cluster number into the one with smaller cluster number. Suppose that we are dealing with the combination of cluster M and cluster N, and M$>$N.
+\item Substitute the cluster number of lattice sites in cluster M with N.  
+\item Add the elements of xcluster[M] and ycluster[M] to the end of xcluster[N] and ycluster[N]
+\item Delete all the elements in xcluster[M] and ycluster[M].
+\item Check the neighboring site along other directions until four direction are all checked.
+\end{itemize}
+
+\subsection{Spanning cluster check}
+After every new cluster/particle addition followed by cluster combination, we are supposed to check whether spanning cluster is already exist in the lattice or not. To check the existence of spanning cluster, we look over all the elements in xcluster and ycluster, to see that whether there is a cluster number i that satisfies both max(xcluster[i])=max(ycluster[i])=N-1 and min(xcluster[i])=min(ycluster[i])=0. If there is, then everything is done. If there is not, we should redo the new cluster/particle addition and cluster combination step and check again.
+
+\end{document}  
