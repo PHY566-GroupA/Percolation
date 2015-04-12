@@ -140,7 +140,6 @@ def main(n):
 				num1 = int(grid[x][y-1])
 				num2 = int(grid[x][y])
 				percolation(num1,num2,xcluster,ycluster,grid)
-		print xcluster
 		ans,num,nc = check(xcluster, ycluster,n)
 		clnum=clnum+1	  
 	return num, nc, xcluster, ycluster, grid
