@@ -83,7 +83,7 @@ def check(xcluster,ycluster,n):
 					break
 	return ans, num, len(xcluster[num])
 
-def fit_func(x, a, b):
+def fit_func(x, a, b):		# This function is used to generate a curve that would fit the data points
     return a*x + b
 
 def main(n):
@@ -148,7 +148,7 @@ def main(n):
 # plotting the spanning cluster for different values off N. Also, simulating each value off N, 50 times.
 N=[5,10,15,20,30,50,80]
 pc=[]
-s=50
+s=50				# number of simulations to average the results
 N_inverse=[]
 for e in N:
 	g=1.0/float(e)
@@ -162,11 +162,11 @@ for i in N:
             a_5=0.0
             b_5=len(xcluster)
             for t in range(b_5):
-                if xcluster[t]!=[]:
+                if xcluster[t]!=[]:			# to count the number of occupied sites in the grid
                     l=len(xcluster[t])
                     for k in range(l):
                         a_5=a_5+1
-            pc_5=a_5/25.0
+            pc_5=a_5/25.0				# calculating the critical probability
             pc_5_dummy.append(pc_5)
         for p in pc_5_dummy:
             pc_5_dummy1=pc_5_dummy1+p
@@ -357,14 +357,11 @@ for i in N:
         pyplot.savefig('80x80grid.png')
         pyplot.show()
 
-print pc
-print N_inverse
-
-x=np.array(N_inverse)
-y=np.array(pc)
+# curve fit the data points
+x=np.array(N_inverse[3:])		# using only a few data points to obtain a curve fit
+y=np.array(pc[3:])
 params = curve_fit(fit_func,x,y)
-[a, b] = params[0]
-print a,b
+[a, b] = params[0]			# storing the slope and y-intercpet value in the variables a,b
 
 q=[0,0.0125,0.02,0.0333333,0.05]
 w=[]
