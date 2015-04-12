@@ -178,7 +178,7 @@ for i in N:
         pyplot.xlim(-1,5)
         pyplot.ylabel('y coordinate -->')
         pyplot.ylim(-1,5)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=95)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=97)
         pyplot.savefig('5x5grid.png')
         pyplot.show()
         
@@ -207,7 +207,7 @@ for i in N:
         pyplot.xlim(-1,10)
         pyplot.ylabel('y coordinate -->')
         pyplot.ylim(-1,10)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=50)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=55)
         pyplot.savefig('10x10grid.png')
         pyplot.show()
 
@@ -236,7 +236,7 @@ for i in N:
         pyplot.xlim(-1,15)
         pyplot.ylabel('y coordinate -->')
         pyplot.ylim(-1,15)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=35)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=40)
         pyplot.savefig('15x15grid.png')
         pyplot.show()
 
@@ -265,7 +265,7 @@ for i in N:
         pyplot.xlim(-1,20)
         pyplot.ylabel('y coordinate -->')
         pyplot.ylim(-1,20)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=25)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=30)
         pyplot.savefig('20x20grid.png')
         pyplot.show()
 
@@ -323,7 +323,7 @@ for i in N:
         pyplot.xlim(-1,50)
         pyplot.ylabel('y coordinate -->')
         pyplot.ylim(-1,50)
-        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=10)
+        pyplot.plot(xcluster[num],ycluster[num],'bo',markersize=15)
         pyplot.savefig('50x50grid.png')
         pyplot.show()
 
@@ -371,11 +371,11 @@ for o in q:
 pyplot.ylim(0.4,0.7)
 pyplot.title('Critical probability vs Grid size')
 pyplot.xlabel('Grid size ($N^{-1}$) -->')
-pyplot.ylabel('Critical probability ($p_c$)')
-pyplot.plot(N_inverse,pc)
+pyplot.ylabel('Critical probability ($p_c$) -->')
+pyplot.plot(N_inverse,pc,'bo',label='data points')
 pyplot.annotate('$p_c(0) = %s$'%(b),xy=(0,b),xytext=(0.03,0.65),arrowprops=dict(facecolor='black', shrink=0.05))
-pyplot.plot(q,w,'r*')
+pyplot.plot(q,w,'r',label='curve fit')
+pyplot.legend(loc='upper right')
 pyplot.savefig('pcvsN-1.png')
 pyplot.show()
-
 
